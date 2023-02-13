@@ -1,0 +1,8 @@
+pulsar:
+  client:
+    service-url: "pulsar://localhost:6650"
+  producer:
+    topic-name: "my-topic"
+    batching-max-publish-delay: 10ms
+    send-timeout: 10s
+    block-if-queue-full: true
