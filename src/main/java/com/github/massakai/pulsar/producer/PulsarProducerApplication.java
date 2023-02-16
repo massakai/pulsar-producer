@@ -6,8 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class PulsarProducerApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(PulsarProducerApplication.class, args);
+    public static void main(final String[] args) {
+        try (var context = SpringApplication.run(PulsarProducerApplication.class, args)) {
+            SpringApplication.exit(context);
+        }
     }
 
 }

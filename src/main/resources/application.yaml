@@ -6,3 +6,7 @@ pulsar:
     batching-max-publish-delay: 10ms
     send-timeout: 10s
     block-if-queue-full: true
+app:
+  max-messages-per-second: 3
+  execution-period: 3m
+  file-path: "./messages.ndjson"

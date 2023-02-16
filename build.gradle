@@ -23,6 +23,7 @@ ext {
 }
 
 dependencies {
+    implementation("com.google.guava:guava:31.1-jre")
     implementation 'org.springframework.boot:spring-boot-starter'
     implementation "org.apache.pulsar:pulsar-client:${pulsarClientVersion}"
     compileOnly 'org.projectlombok:lombok'

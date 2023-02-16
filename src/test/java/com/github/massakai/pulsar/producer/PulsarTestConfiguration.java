@@ -17,5 +17,5 @@ public class PulsarTestConfiguration {
     PulsarClient pulsarClient;
 
     @MockBean
-    Producer<byte[]> producer;
+    Producer<String> producer;
 }

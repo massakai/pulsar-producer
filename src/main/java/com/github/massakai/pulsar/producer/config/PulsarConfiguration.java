@@ -3,6 +3,7 @@ package com.github.massakai.pulsar.producer.config;
 import org.apache.pulsar.client.api.Producer;
 import org.apache.pulsar.client.api.PulsarClient;
 import org.apache.pulsar.client.api.PulsarClientException;
+import org.apache.pulsar.client.api.Schema;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,8 +20,8 @@ public class PulsarConfiguration {
     }
 
     @Bean
-    public Producer<byte[]> pulsarProducer(final PulsarClient pulsarClient, final ProducerProperties producerProperties) throws PulsarClientException {
-        return pulsarClient.newProducer()
+    public Producer<String> pulsarProducer(final PulsarClient pulsarClient, final ProducerProperties producerProperties) throws PulsarClientException {
+        return pulsarClient.newProducer(Schema.STRING)
                 .loadConf(producerProperties.toMap())
                 .create();
     }
