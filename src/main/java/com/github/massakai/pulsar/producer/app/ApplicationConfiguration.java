@@ -2,7 +2,7 @@ package com.github.massakai.pulsar.producer.app;
 
 
 import com.github.massakai.pulsar.producer.message.provider.MessageProvider;
-import com.github.massakai.pulsar.producer.message.provider.SimpleMessageProvider;
+import com.github.massakai.pulsar.producer.message.provider.RepeatableMessageProvider;
 import com.google.common.util.concurrent.RateLimiter;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -25,6 +25,6 @@ public class ApplicationConfiguration {
     public MessageProvider<String> messageProvider(
             final ApplicationProperties applicationProperties) throws IOException {
         List<String> lines = Files.readAllLines(applicationProperties.getFilePath());
-        return new SimpleMessageProvider<>(lines);
+        return new RepeatableMessageProvider<>(lines);
     }
 }

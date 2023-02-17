@@ -43,7 +43,7 @@ public class ProducerRunner implements ApplicationRunner {
         } catch (final Exception e) {
             log.error("An error occurred.", e);
         } finally {
-            executor.shutdown();
+            executor.shutdownNow();
         }
     }
 }

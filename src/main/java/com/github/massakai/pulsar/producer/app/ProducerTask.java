@@ -20,7 +20,8 @@ public class ProducerTask implements Runnable {
 
     @Override
     public void run() {
-        while (messageProvider.hasNext()) {
+        // タスクをキャンセルされたときにループを終了させる
+        while (messageProvider.hasNext() && !Thread.currentThread().isInterrupted()) {
             rateLimiter.acquire();
             try {
                 producer.send(messageProvider.next());
